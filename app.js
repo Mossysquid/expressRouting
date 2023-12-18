@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3005
+const port = process.env.PORT || 3005
 
 app.use(express.static('stuff'));
 app.post(/i*apple$/, (req, res)=>{
@@ -24,5 +24,5 @@ app.route('banana')
     res.send('get delete/n')
 })
 app.listen(port, ()=>{
-    console.log(`on port ${port}`);
+    console.log(`on port ${port}, ${process.env.PORT}`);
 });
